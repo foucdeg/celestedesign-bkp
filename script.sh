@@ -7,5 +7,6 @@ for dir in $DIRS
 do
   sed -i.bak "s/\/$dir\/files\/$FILE/\/files\/$FILE/g" "$dir/index.html"
   rm "$dir/index.html.bak"
+  [ -f "files/$FILE" ] || mv "$dir/files/$FILE" "files/$FILE"
   [ -f "$dir/files/$FILE" ] && rm "$dir/files/$FILE"
 done
